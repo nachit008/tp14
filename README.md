@@ -1,1 +1,1 @@
-# tp14
+# realicé una simple interfaz grafica con todo listo para utilizar el programa, faltaría hacer la validacion de IPs y los metodos para enviar pings y mostrar resultados en una tabla
