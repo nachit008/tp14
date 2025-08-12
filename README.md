@@ -1,1 +1,2 @@
 # realicé una simple interfaz grafica con todo listo para utilizar el programa, faltaría hacer la validacion de IPs y los metodos para enviar pings y mostrar resultados en una tabla
+ahora me centre en validar las IPs. Con operaciones en binario convierto las IPs en un numero decimal y asi las comparo facilmente. Ahora lo que me queda es el ping a los equipos, la barra de progreso real y la tabla para ver los resultados.
