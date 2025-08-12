@@ -1,6 +1,9 @@
 package vista;
 
 import javax.swing.*;
+
+import util.ValidadorIP;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
@@ -54,11 +57,25 @@ public class InterfazGrafica extends JFrame {
     private void iniciarEscaneo(ActionEvent e) {
         String ipInicio = campoIPInicio.getText();
         String ipFin = campoIPFin.getText();
-        int tiempoEspera = (int) spinnerTiempoEspera.getValue();
-        JOptionPane.showMessageDialog(this, "Escaneando desde " + ipInicio + " hasta " + ipFin);
-        // (La lógica de escaneo se agregará en la siguiente entrega)
-    }
 
+        if (!ValidadorIP.esIPValida(ipInicio)) {
+            JOptionPane.showMessageDialog(this, "IP inicial no válida");
+            return;
+        }
+
+        if (!ValidadorIP.esIPValida(ipFin)) {
+            JOptionPane.showMessageDialog(this, "IP final no válida");
+            return;
+        }
+
+        if (!ValidadorIP.esRangoValido(ipInicio, ipFin)) {
+            JOptionPane.showMessageDialog(this, "La IP inicial debe ser menor que la final");
+            return;
+        }
+
+        // Si pasó todas las validaciones
+        JOptionPane.showMessageDialog(this, "¡IPs válidas! Listo para escanear");
+    }
     private void limpiarCampos() {
         campoIPInicio.setText("");
         campoIPFin.setText("");
@@ -68,4 +85,5 @@ public class InterfazGrafica extends JFrame {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> new InterfazGrafica().setVisible(true));
     }
+    
 }
