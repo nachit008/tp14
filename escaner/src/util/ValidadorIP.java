@@ -20,14 +20,13 @@ public class ValidadorIP {
     public static boolean esRangoValido(String ipInicio, String ipFin) {
         if (!esIPValida(ipInicio) || !esIPValida(ipFin)) return false;
         
-        // Convertimos ambas IPs a un número largo para comparación
         long numInicio = ipToLong(ipInicio);
         long numFin = ipToLong(ipFin);
         
         return numInicio <= numFin;
     }
     
-    private static long ipToLong(String ip) {
+    public static long ipToLong(String ip) {
         long resultado = 0;
         String[] octetos = ip.split("\\.");
         
@@ -36,5 +35,12 @@ public class ValidadorIP {
             resultado |= Integer.parseInt(octetos[i]);
         }
         return resultado;
+    }
+    
+    public static String longToIp(long ip) {
+        return ((ip >> 24) & 0xFF) + "." +
+               ((ip >> 16) & 0xFF) + "." +
+               ((ip >> 8) & 0xFF) + "." +
+               (ip & 0xFF);
     }
 }
