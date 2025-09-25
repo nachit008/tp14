@@ -22,3 +22,4 @@
 4. Los resultados se mostrarán en la tabla
 5. Opcional: Guardar resultados en CSV
 
+##aruegue una pestaña donde iria todo sobre las funciones netstat, lo que me queda es hacer los 3 botones con las 3 funciones usables
